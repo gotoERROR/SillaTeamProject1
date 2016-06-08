@@ -1,0 +1,19 @@
+<? session_start(); 
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>Ajax Polling Sample Code</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="chat.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/chat.css" />
+</head>
+<body>
+<dl id="list"></dl>
+<form onsubmit="chatManager.write(this); return false;">
+	<input name="name" id="name" type="hidden" value="<?=$_SESSION['ss_name'];?>" />
+	<input name="msg" id="msg" type="text" />
+	<input name="btn" id="btn" type="submit" value="입력" />
+</form>
+</body>
+</html>
