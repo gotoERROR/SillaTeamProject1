@@ -1,4 +1,5 @@
-<?
+<? session_start();
+
 if(!$_GET['date'])
 {
 	$_GET['date'] = date('Y-m-d H:i:s');
@@ -6,7 +7,7 @@ if(!$_GET['date'])
 
 $db = new mysqli('localhost', 'root', 'apmsetup', 'chat');
 $db->query('SET NAMES utf8');
-$res = $db->query('SELECT * FROM chat WHERE date > "' . $_GET['date'] . '"');
+$res = $db->query('SELECT * FROM chat WHERE date > "' . $_GET['date'] . '"' . ' and room_no = "' . $_SESSION['ss_room'] . '"');
 $data = array();
 $date = $_GET['date'];
 

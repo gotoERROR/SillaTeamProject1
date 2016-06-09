@@ -1,3 +1,7 @@
+<? session_start();
+	$room_id = $_SESSION['ss_room_id'];
+	
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -6,6 +10,9 @@
     <link type="text/css" rel="stylesheet" href="css/default.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css" />
     <style>
+		iframe{
+			padding:0px;
+		}
 	</style>
 </head>
 
@@ -22,12 +29,15 @@
                 </td>
     			<td id="main_contents_f">
                 <!--친구추가 iframe-->
-                	<iframe src="friend_add.php" height="100%"> </iframe>
+                	<iframe src="contents_middle.php" height="100%"> </iframe>
                 </td>
     			<td id="main_contents_r">
                 <!--채팅 iframe-->
-                	<iframe src="chat_user.php" height="10%"> </iframe>
-                    <iframe src="chat.php" height="90%"> </iframe>
+                <? if ($room_id != NULL) { ?>
+                	<iframe src="chat.php" height="100%"> </iframe>
+                <? } else { ?>
+                	<iframe src="room_select.php" height="100%"> </iframe>
+                <? } ?>
                 </td>
   			</tr>
         </table>    	

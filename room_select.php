@@ -1,24 +1,54 @@
 <? session_start();
-	
 	include "./config/dbconn.php";	
-	mysql_query("set names utf8");	
+	mysql_query("set names utf8");
 	
-	//방 목록 정보
-	$sql = " SELECT * FROM room_list ";
-	$sql .= " WHERE room_member = '$me_email' ";
-	$result_room = mysql_query($sql);
+	if ($_SESSION['ss_room'] != NULL){
+		$_SESSION['ss_room'] = NULL;
+	}
+	
+	//채팅방 생성 신호 체크
+	$signal = $_POST['create'];
+	if ($signal == "create")
+	{
+		//채팅방 생성, 번호는 자동 생성
+		$me = $_SESSION['ss_email'];	
+		$sql = " INSERT INTO room (room_creater) ";
+		$sql .= " VALUES ('$me') ";
+		mysql_query($sql);
+		//방-멤버 테이블에 추가
+		//LAST_INSERT_ID() 가장 최근에 INSERT 된 값 가져오기
+		$sql = " INSERT INTO room_list (room_no, room_member) ";
+		$sql .= " VALUES (LAST_INSERT_ID(), '$me') ";
+		mysql_query($sql);
+		//채팅 페이지 이동
+		echo("<script>location.replace('chat.php');</script>"); 
+	}
 
 ?>
-
-<!--방 목록-->
-<? if (mysql_num_rows($result_room) > 0) {
-		while ($rows = mysql_fetch_object($result_room)){
-			$room = $rows->room_no 
-?>
- 		<tr>
-    		<td><p>Room - <?=$room?></p></td>
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link type="text/css" rel="stylesheet" href="css/default.css" />
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
+	<title>무제 문서</title>
+</head>
+<body>
+	<table width="100%" border="0">
+  		<tr style="background-color:#000000;">
+    		<td colspan="2">
+            	<form action="room_select.php" method="post">
+                	<input type="hidden" name="create" value="create" />
+                	<input type="submit" name="create_room" value="채팅방 생성" />
+                </form>
+            </td>
   		</tr>
-<? 		}//while mysql_fetch_object
-	}//if mysql_num_rows
-	else echo "<tr><td><p>방 없음...</p></td></tr>"; 
-?>
+  		<tr>
+    		<td>현재 방 목록</td>
+    		<td>ㅇㅅㅇ</td>
+  		</tr>
+        <? include_once "room_list.php"; ?>
+	</table>
+
+</body>
+</html>

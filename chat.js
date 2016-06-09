@@ -48,7 +48,7 @@ var chatManager = new function(){
 
 		// 채팅내용 추가
 		for(var i=0; i<data.length; i++)
-		{
+		{			
 			dt = document.createElement('dt');
 			dt.appendChild(document.createTextNode(data[i].name));
 			o.appendChild(dt);
@@ -66,6 +66,7 @@ var chatManager = new function(){
 	this.write = function(frm)
 	{
 		var xmlHttpWrite	= new XMLHttpRequest();
+		var room			= frm.room.value;
 		var name			= frm.name.value;
 		var msg				= frm.msg.value;
 		var param			= [];
@@ -77,6 +78,7 @@ var chatManager = new function(){
 		}
 		
 		// POST Parameter 구축
+		param.push("room=" + encodeURIComponent(room));
 		param.push("name=" + encodeURIComponent(name));
 		param.push("msg=" + encodeURIComponent(msg));
 				
