@@ -20,10 +20,7 @@
 		$sql = " INSERT INTO room_list (room_no, room_member) ";
 		$sql .= " VALUES (LAST_INSERT_ID(), '$me') ";
 		mysql_query($sql);
-		//채팅 페이지 이동
-		echo("<script>location.replace('chat.php');</script>"); 
 	}
-
 ?>
 <!DOCTYPE HTML>
 <html>
