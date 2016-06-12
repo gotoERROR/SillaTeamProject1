@@ -29,14 +29,16 @@
     <link type="text/css" rel="stylesheet" href="css/default.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css" />
 	<title>무제 문서</title>
+    <style>		
+	</style>
 </head>
 <body>
 	<table width="100%" border="0">
   		<tr style="background-color:#000000;">
     		<td colspan="2">
-            	<form action="room_select.php" method="post">
+            	<form action="room_select.php" method="post" style="padding:0px">
                 	<input type="hidden" name="create" value="create" />
-                	<input type="submit" name="create_room" value="채팅방 생성" />
+                	<input type="submit" name="create_room" value="채팅방 생성" style="width:100%; margin:0px;" />
                 </form>
             </td>
   		</tr>

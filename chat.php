@@ -25,20 +25,20 @@
 	<meta charset="utf-8">
 	<script type="text/javascript" src="chat.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/chat.css" />
-    <style>
-	</style>
+    <link type="text/css" rel="stylesheet" href="css/default.css" />
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-	<div style="height:40px; background-color:#CCCCCC; display:inline;">
-    	<table width="100%" border="0">
+    <table width="100%" border="0">
+  		<tr style="background-color:#000000;">
+    		<td><button onClick="exitChat();" style="width:100%;">방 나가기</button></td>
+            <td><button onClick="friend()" style="width:100%;">초대하기</button></td>
+  		</tr> 
   			<tr>
-    			<td>채팅방 : <?=$room_no?> <br/> <?=$room_list?></td>
-    			<td><button onClick="exitChat();">방 나가기</button>
-                	<button onClick="">초대하기</button></td>
+    			<td colspan="2">채팅방 : <?=$room_no?> <br/> <?=$room_list?></td>
   			</tr>
-		</table>
-	</div>
-	<dl id="list" style="height:625px; overflow:auto;"></dl>
+	</table>
+	<dl id="list" style="height:620px; overflow:auto;"></dl>
 	<form onsubmit="chatManager.write(this); return false;">
     	<input name="room" id="room" type="hidden" value="<?=$room_no?>" />
 		<input name="name" id="name" type="hidden" value="<?=$_SESSION['ss_name'];?>" />
@@ -49,6 +49,9 @@
 <script>
 	function exitChat(){
 		location.replace("room_select.php");
+	}
+	function friend(){
+		window.open('friend_select.php','popup','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=300,height=300');
 	}
 </script>
 </html>
