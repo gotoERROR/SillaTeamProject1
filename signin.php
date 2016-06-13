@@ -36,28 +36,43 @@
     <link type="text/css" rel="stylesheet" href="css/main.css" />
     <style>
 		body{
-			background-color:#000000;
+			background-color:#FFFFFF;
 		}
 		#log{
-			display:inline-block;
 		}
 		#login{
-			padding:10px;
-			width:500px;
-			height:500px;
-			background-color:#FFFFFF;
+		}
+		td{
+			text-align:center;
 		}
 	</style>
 </head>
 
 <body>
+    
 	<div id="login">
+       	<table width="400" border="0" cellpadding="0" bgcolor="#00FF99">
     	<form action="signin.php" method="post">
-        	<br/><input type="email" name="email" id="email" /> 이메일 
-            <br/><input type="password" name="pw" id="pw" /> 비밀번호
-            <br/><input type="text" name="name" id="name" /> 이름         
-            <br/><input type="submit" value="회원가입" />
-        </form>
+  			<tr>
+    			<td><input type="email" name="email" id="email" style="width:100%;"  /></td>
+    			<td>이메일</td>
+  			</tr>
+  			<tr>
+    			<td><input type="password" name="pw" id="pw" style="width:100%;"  /></td>
+    			<td>비밀번호</td>
+  			</tr>
+  			<tr>
+    			<td><input type="text" name="name" id="name" style="width:100%;"  /></td>
+    			<td>이름</td>
+  			</tr>
+  			<tr>
+    			<td colspan="2"><input type="submit" value="회원가입" style="width:100%;" /></td>
+  			</tr>
+       	</form>    
+  			<tr>
+    			<td colspan="2"><a href="login.php"><button style="width:100%;" >로그인 화면</button></a></td>
+  			</tr>        
+		</table>        	
     </div>
     <script>
 	</script>

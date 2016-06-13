@@ -49,7 +49,7 @@
 <body>
 	<table width="100%" border="0">
   		<tr  style="background-color:#000000">
-			<form action="contents_middle.php" method="post" >
+			<form action="friend_list.php" method="post" >
     		<td align="left"><input type="email" name="friend_e" id="friend_e" style="width:100%; margin:0px;" /></td>
     		<td align="left"><input type="submit" value="친구추가" style="width:100%; margin:0px;" /></td>
 			</form>

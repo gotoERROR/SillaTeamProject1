@@ -1,6 +1,12 @@
 <? session_start();
 	$room_id = $_SESSION['ss_room_id'];
 	
+	if ($_POST['logout'] == "logout") 
+	{
+		session_destroy();
+		echo "<script>alert('로그아웃!');</script>";
+		echo "<script>location.href='login.php'</script>";
+	}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -18,6 +24,12 @@
     	<table width="100%" border="0" cellpadding="0">
   			<tr>
     			<td>산학실무 프로젝트</td>
+				<td align="right" width="150px">
+                	<form action="main.php" method="post" > 
+                    	<input type="hidden" name="logout" value="logout" />
+                    	<input type="submit" value="로그아웃" style="width:100%;" />
+                	</form>
+                </td>
   			</tr>
 		</table>
     </div>
