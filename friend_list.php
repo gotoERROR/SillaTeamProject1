@@ -50,11 +50,10 @@
 	<table width="100%" border="0">
   		<tr  style="background-color:#000000">
 			<form action="friend_list.php" method="post" >
-    		<td align="left"><input type="email" name="friend_e" id="friend_e" style="width:100%; margin:0px;" /></td>
-    		<td align="left"><input type="submit" value="친구추가" style="width:100%; margin:0px;" /></td>
+    		<td align="left"><input type="email" name="friend_e" id="friend_e" style="width:100%; margin:0px; height:20px;" /></td>
+    		<td align="left"><input type="submit" value="친구추가" style="width:100%; margin:0px; height:20px;" /></td>
 			</form>
-  		</tr><?
-	
+  		</tr><?	
 	//친구 목록 정보
 	$sql = " SELECT friend FROM friend ";
 	$sql .= " WHERE me = '$me_email' ";
@@ -68,8 +67,7 @@
 		while ($rows = mysql_fetch_object($result_friend)){
 			$friend_name = $rows->friend ?>
 		<tr style="background-color:#F9F9F9">
-  			<td><p><?=$friend_name?></p></td>
-  			<td><button>아직 기능 없음</button></td>
+  			<td colspan="2"><p><?=$friend_name?></p></td>
 		</tr>
 <? 		}//while mysql_fetch_object
 			}//if mysql_num_rows

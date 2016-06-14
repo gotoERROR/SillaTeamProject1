@@ -15,8 +15,7 @@
 		while ($rows = mysql_fetch_object($result)){
 			$room_list .= $rows->room_member . ' ';			
 		}
-	}
-	
+	}	
 ?>
 <!DOCTYPE html>
 <html lang="ko">
@@ -24,9 +23,9 @@
 <title>Ajax Polling Sample Code</title>
 	<meta charset="utf-8">
 	<script type="text/javascript" src="chat.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/chat.css" />
     <link type="text/css" rel="stylesheet" href="css/default.css" />
     <link type="text/css" rel="stylesheet" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/chat.css" />
 </head>
 <body>
     <table width="100%" border="0">
@@ -38,7 +37,25 @@
     			<td colspan="2">채팅방 : <?=$room_no?> <br/> <?=$room_list?></td>
   			</tr>
 	</table>
-	<dl id="list" style="height:620px; overflow:auto;"></dl>
+	<dl id="list" style="height:550px; overflow:auto;">
+	<?	
+		//이전 기록 불러오기
+		$sql = " SELECT * FROM chat ";
+		$sql .= " WHERE room_no = $room_no ";
+		
+		$result = mysql_query($sql);
+		
+		if (mysql_num_rows($result) > 0) {
+			while ($rows = mysql_fetch_object($result)){
+				$name = $rows->name;
+				$msg = $rows->msg;
+				echo "<dt>".$name."</dt>";	
+				echo "<dd>".$msg."</dd>";			
+			}
+		}		
+	?>
+    
+    </dl>
 	<form onsubmit="chatManager.write(this); return false;">
     	<input name="room" id="room" type="hidden" value="<?=$room_no?>" />
 		<input name="name" id="name" type="hidden" value="<?=$_SESSION['ss_name'];?>" />

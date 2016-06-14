@@ -18,7 +18,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link type="text/css" rel="stylesheet" href="css/default.css" />
-<link type="text/css" rel="stylesheet" href="css/main.css" />
 <title>무제 문서</title>
 <style>
 </style>
@@ -31,11 +30,12 @@
       		<td><input type="submit" onClick="roomList()" value="채팅목록" style="background-color:#99FFCC; width:100%;" /></td>
     	</tr>
     	<tr>
-      		<td colspan="2"><iframe id="room" name="room" src="<?=$page?>" height="750px"> </iframe></td>
+      		<td colspan="2">
+            	<iframe id="room" name="room" src="<?=$page?>" height="720px"> </iframe>
+            </td>
     	</tr>
   	</table>
-  	<div>
-  	</div>
+	</form>
     <script>
 		function friendList(){
 			document.getElementById("select").value = "friend";
@@ -44,7 +44,6 @@
 			document.getElementById("select").value = "room";
 		}
 	</script>
-</form>
 <body>
 </body>
 </html>

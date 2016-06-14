@@ -42,4 +42,10 @@ td{
 	margin:0px;
 	border:0px;
 	padding:0px;
-}			
+}		
+input{
+	height:40px;
+}
+button{
+	height:40px;
+}
