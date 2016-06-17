@@ -1,4 +1,3 @@
-
 var chatManager = new function(){
 
 	var idle 		= true;
@@ -52,14 +51,14 @@ var chatManager = new function(){
 			dt = document.createElement('dt');
 			dt.appendChild(document.createTextNode(data[i].name));
 			o.appendChild(dt);
-
+			
 			dd = document.createElement('dd');
 			dd.appendChild(document.createTextNode(data[i].msg));
 			o.appendChild(dd);
 		}
 
 		// 가장 아래로 스크롤
-		o.scrollTop = o.scrollHeight;
+		//o.scrollTop = o.scrollHeight;
 	}
 
 	// 채팅내용 작성하기

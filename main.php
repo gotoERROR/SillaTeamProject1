@@ -10,8 +10,6 @@
 		echo "<script>alert('로그아웃!');</script>";
 		echo "<script>location.href='login.php'</script>";
 	}
-	
-	
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -42,7 +40,7 @@
     	<table id="main_contents" height="780px" width="100%" border="0" cellpadding="0">
   			<tr id="contents">
             <? if ($flatform != "desktop") { ?>
-    			<td id="main_contents_l">
+    			<td id="main_contents_l" name="main_contents_l">
                 	<iframe src="http://hackertyper.com/" height="100%"> </iframe>
                 </td>
             <? } ?>
@@ -54,5 +52,8 @@
   			</tr>
         </table>    	
     </div>
+    <script>
+		window.name = "mainpage";
+	</script>
 </body>
 </html>

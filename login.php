@@ -39,10 +39,6 @@
 		body{
 			background-color:#FFFFFF;
 		}
-		#log{
-		}
-		#login{
-		}
 		td{
 			text-align:center;
 		}

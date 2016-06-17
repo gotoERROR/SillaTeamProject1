@@ -1,7 +1,6 @@
 <?
 //채팅 입력 설정
 	$room_no = $_POST['room'];
-	echo "asdas";
 $db = new mysqli('localhost', 'root', 'apmsetup', 'chat');
 $db->query('SET NAMES utf8');
 $db->query('
