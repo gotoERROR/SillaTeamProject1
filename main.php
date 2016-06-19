@@ -1,9 +1,6 @@
 <? session_start();
 	$room_id = $_SESSION['ss_room_id'];
 	
-	//플랫폼에 맞추어 화면 처리
-	$flatform = $_SESSION['ss_flatform'];
-	
 	if ($_POST['logout'] == "logout") 
 	{
 		session_destroy();
