@@ -114,20 +114,14 @@
 				$name = $rows->name;
 				$msg = $rows->msg;
 				$type = $rows->data_type;
-				if ($name != $me_name) {
-					echo "<dt>".$name."</dt>";	
-					if ($type != 'image'){
-						if ($msg[0]==h && $msg[1]==t && $msg[2]==t && $msg[3]==p){
-							echo "<dd><a href='".$msg."' target='main_contents_l'>".$msg."</a></dd>";
-						} else {
-							echo "<dd>".$msg."</dd>";
-						}
-					} else {
-						echo "<img src='".$msg."' width='200'></img>";	
-					}
-				} 
-			}
-		}		
+				echo "<dt>".$name."</dt>";	
+				if ($type != 'image'){
+					echo "<dd>".$msg."</dd>";
+				}else {
+					echo "<img src='".$msg."' width='200'></img>";
+				}
+			} 
+		}
 	?>
     </dl>
 	<form onsubmit="chatManager.write(this); return false;">

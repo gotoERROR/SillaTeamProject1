@@ -22,7 +22,7 @@
 	</style>
 </head>
 
-<body>
+<body onResize="parent.resizeTo(450,950)" onLoad="parent.resizeTo(450,950)">
 	<div id="main_title">
     	<table width="100%" border="0" cellpadding="0" >
   			<tr>
@@ -39,11 +39,11 @@
     <div id="main_content">
     	<table id="main_contents" height="780px" width="100%" border="0" cellpadding="0">
   			<tr id="contents">
-            <? if ($flatform != "desktop") { ?>
+            <!--
     			<td id="main_contents_l" name="main_contents_l">
                 	<iframe src="http://hackertyper.com/" height="100%"> </iframe>
                 </td>
-            <? } ?>
+            -->
     			<td id="main_contents_r">
                 <!--채팅 iframe-->
                 	<iframe src="main_contents.php" height="100%"> </iframe>                	
@@ -52,8 +52,5 @@
   			</tr>
         </table>    	
     </div>
-    <script>
-		window.name = "mainpage";
-	</script>
 </body>
 </html>
